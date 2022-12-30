@@ -24,6 +24,8 @@ public class ItemInteraction : MonoBehaviour
         if(currentObj != null)
         {
         currentObj.transform.position=holdingObjectPosition.transform.position;
+        currentObj.gameObject.transform.LookAt (this.gameObject.transform.position);
+
 
         }
         Ray ray = new Ray (rayCastOrigin.transform.position + Camera.main.transform.forward * 0.3f, rayCastOrigin.transform.forward);
