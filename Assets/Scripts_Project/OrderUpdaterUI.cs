@@ -20,7 +20,10 @@ public class OrderUpdaterUI : MonoBehaviour
         for(int i=0;i<maxOrders;i++)
         {
              GameObject nouPref= Instantiate(prefabSlot, new Vector3(1.0f, 0, 0), Quaternion.identity);
-                nouPref.transform.parent = orderPanel.gameObject.transform;
+             //funciona pero dona msg consola
+                //nouPref.transform.parent = orderPanel.gameObject.transform;
+                //test
+                nouPref.transform.SetParent (orderPanel.gameObject.transform); 
 
                  var rectTransform = nouPref.GetComponent<RectTransform>();
                  

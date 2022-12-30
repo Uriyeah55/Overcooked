@@ -32,7 +32,6 @@ public class OrderGenerator : MonoBehaviour
     {
        // Debug.Log("generating order");
         int randomNumber = Random.Range(0, ordersList.Count);
-        Debug.Log("ha tocat random " + randomNumber);
         //random todo
         Order orderToReturn= ordersList[randomNumber];
 

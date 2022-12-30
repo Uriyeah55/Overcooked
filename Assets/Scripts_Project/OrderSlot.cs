@@ -26,9 +26,12 @@ public class OrderSlot : MonoBehaviour
         foreach(Ingredient ing in OrderToUpdate.orderIngredients)
         {
             GameObject nouPref= Instantiate(prefabImageIngredient, this.gameObject.transform.GetChild(0).transform.position, Quaternion.identity);
-            nouPref.transform.parent = this.gameObject.transform.GetChild(0);
+            //nouPref.transform.parent = this.gameObject.transform.GetChild(0);
+            //test
+            nouPref.transform.SetParent (this.gameObject.transform.GetChild(0)); 
+            
             //object1 is now the child of object2
-        Debug.Log("spawn" + nouPref.name);
+//        Debug.Log("spawn" + nouPref.name);
 
             nouPref.GetComponent<Image>().sprite=ing.IngredientImg.sprite;
         }
