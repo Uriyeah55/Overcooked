@@ -8,7 +8,9 @@ public class Ingredient : MonoBehaviour
 {
     public string name;
     public bool canBeChopped;
+    public bool isChopped=false;
     public bool canBeBoiled;
+    public bool isBoiled=false;
     public Image IngredientImg;
 
     //public List<Ingredient> allIngredients = new List<Ingredient>();  // Create list

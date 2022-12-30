@@ -6,6 +6,7 @@ TagManager:
   tags:
   - CinemachineTarget
   - Pickable
+  - Plate
   layers:
   - Default
   - TransparentFX

@@ -25,13 +25,10 @@ public class ItemInteraction : MonoBehaviour
         {
         currentObj.transform.position=holdingObjectPosition.transform.position;
         currentObj.gameObject.transform.LookAt (this.gameObject.transform.position);
-
-
         }
+
         Ray ray = new Ray (rayCastOrigin.transform.position + Camera.main.transform.forward * 0.3f, rayCastOrigin.transform.forward);
         Debug.DrawRay (ray.origin, ray.direction * 10, Color.red);
-
-       
 
         RaycastHit hit;
         if (Physics.Raycast (ray, out hit, 20))  
@@ -46,8 +43,13 @@ public class ItemInteraction : MonoBehaviour
                 {
                     if (Input.GetKeyDown(KeyCode.E))
                     {
-                         //Destroy(hit.transform.gameObject);
-                         currentObj=hit.transform.gameObject;
+                        if(hit.transform.gameObject.GetComponent<Ingredient>() != null)
+                        {
+                            if(hit.transform.gameObject.GetComponent<Ingredient>().isBoiled == true || hit.transform.gameObject.GetComponent<Ingredient>().isChopped == true)
+                            Debug.Log ("pop up menu");
+                        }
+                         
+                         //currentObj=hit.transform.gameObject;
                     }
                 }       
             }
