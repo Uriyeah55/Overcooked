@@ -51,7 +51,13 @@ public class ItemInteraction : MonoBehaviour
                          
                          //currentObj=hit.transform.gameObject;
                     }
-                }       
+                }     
+                //interactua amb una taula per tallar i té un ingredient a la ma
+               if(hit.collider.tag=="CuttingBoard" != null && currentObj != null && currentObj.GetComponent<Ingredient>().canBeChopped==true 
+               && currentObj.GetComponent<Ingredient>().isChopped==false)
+                {
+                    //cridar metode per tallar, radial
+                }  
             }
         }    
     }
