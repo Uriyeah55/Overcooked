@@ -45,11 +45,15 @@ public class ItemInteraction : MonoBehaviour
                     {
                         if(hit.transform.gameObject.GetComponent<Ingredient>() != null)
                         {
-                            if(hit.transform.gameObject.GetComponent<Ingredient>().isBoiled == true || hit.transform.gameObject.GetComponent<Ingredient>().isChopped == true)
+                            if(hit.transform.gameObject.GetComponent<Ingredient>().isBoiled == true || hit.transform.gameObject.GetComponent<Ingredient>().isChopped == true){
                             Debug.Log ("pop up menu");
+                            }
+                            else{
+                         currentObj=hit.transform.gameObject;
                         }
+                        }
+                        
                          
-                         //currentObj=hit.transform.gameObject;
                     }
                 }     
                 //interactua amb una taula per tallar i té un ingredient a la ma

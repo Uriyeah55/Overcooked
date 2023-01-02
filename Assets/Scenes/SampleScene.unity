@@ -629,6 +629,7 @@ GameObject:
   - component: {fileID: 511612684}
   - component: {fileID: 511612683}
   - component: {fileID: 511612682}
+  - component: {fileID: 511612686}
   m_Layer: 0
   m_Name: TestIngredient
   m_TagString: Pickable
@@ -707,11 +708,29 @@ Transform:
   m_GameObject: {fileID: 511612681}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 13.42, y: 2.37, z: 15.18}
-  m_LocalScale: {x: 0.81398016, y: 0.57976663, z: 0.29361185}
+  m_LocalScale: {x: 0.6799087, y: 0.530684, z: 0.63772494}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &511612686
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 511612681}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d5be3db695f293479e9e3abd73ab4dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  name: fbfb
+  canBeChopped: 1
+  isChopped: 0
+  canBeBoiled: 1
+  isBoiled: 0
+  IngredientImg: {fileID: 0}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -2270,7 +2289,7 @@ GameObject:
   - component: {fileID: 1800257513}
   - component: {fileID: 1800257512}
   m_Layer: 5
-  m_Name: Image
+  m_Name: ImageRadial
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2285,7 +2304,7 @@ RectTransform:
   m_GameObject: {fileID: 1800257510}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.41657704, y: 0.41657704, z: 0.41657704}
+  m_LocalScale: {x: 3.069673, y: 3.069673, z: 3.069673}
   m_Children: []
   m_Father: {fileID: 1581827089}
   m_RootOrder: 1
@@ -2315,12 +2334,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d962b1f23e8b60f41a49a91cf9953528, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a5189875471a45c4b9d25cc2b14b0132, type: 3}
   m_Type: 3
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
-  m_FillAmount: 1
+  m_FillAmount: 0
   m_FillClockwise: 1
   m_FillOrigin: 2
   m_UseSpriteMesh: 0
@@ -2408,6 +2427,56 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2062638676
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2062638678}
+  - component: {fileID: 2062638677}
+  m_Layer: 0
+  m_Name: RADIAL PROVA
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &2062638677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2062638676}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f719b4ff99aaeb499063a083ed00d75, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  indicatorTimer: 0.5
+  maxIndicatorTimer: 1
+  radialIndicatorUI: {fileID: 1800257512}
+  selectKey: 323
+  myEvent:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!4 &2062638678
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2062638676}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 973.407, y: 167.59787, z: -92.03173}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2097255221
 GameObject:
