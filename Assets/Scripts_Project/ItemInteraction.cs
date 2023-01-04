@@ -19,6 +19,7 @@ public class ItemInteraction : MonoBehaviour
 
     private bool shouldUpdate=false;
 
+    public GameObject panelPlates;
     GameObject player;
     public GameObject holdingObjectPosition;
     GameObject currentObj;
@@ -29,6 +30,8 @@ public class ItemInteraction : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+               
+
         currentObj=null;
         player = GameObject.Find("Player");
            
@@ -105,6 +108,8 @@ public class ItemInteraction : MonoBehaviour
 
             if(indicatorTimer <=0){
                 currentObj.GetComponent<Ingredient>().isChopped=true;
+                 panelPlates.gameObject.SetActive(true);
+
             player.GetComponent<ThirdPersonController>().enabled=true;
 
             indicatorTimer=maxIndicatorTimer;
