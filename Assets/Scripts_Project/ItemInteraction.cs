@@ -101,7 +101,18 @@ namespace StarterAssets
                     } 
                     if(hit.collider.tag=="Plate" && distanceToRaycastObject <=3f)
                     {
-                        panelPlateIngredients.SetActive(true);
+                         if (Input.GetKeyDown(KeyCode.E))
+                        {
+                             switch(hit.collider.name)
+                        {
+
+                            case "Plate 1":
+                            panelPlateIngredients.SetActive(true);
+                            break;
+                        }
+                        }
+                       //TODO desactivar quan tregui el raycast buscar raycast out
+                        
                     }
                 }
             }    
