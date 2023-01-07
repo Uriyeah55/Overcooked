@@ -19,6 +19,7 @@ namespace StarterAssets
 
         float distanceToRaycastObject;
         public GameObject panelPlates;
+        public GameObject panelPlateIngredients;
         GameObject player;
         public GameObject holdingObjectPosition;
         public GameObject currentObj;
@@ -98,6 +99,10 @@ namespace StarterAssets
                     StartCoroutine("boilIngredient");
                     currentObj.transform.position=new Vector3(hit.transform.position.x,hit.transform.position.y + 2f, hit.transform.position.z); 
                     } 
+                    if(hit.collider.tag=="Plate" && distanceToRaycastObject <=3f)
+                    {
+                        panelPlateIngredients.SetActive(true);
+                    }
                 }
             }    
         }
