@@ -21,7 +21,7 @@ namespace StarterAssets
         public GameObject panelPlates;
         GameObject player;
         public GameObject holdingObjectPosition;
-        GameObject currentObj;
+        public GameObject currentObj;
 
     public GameObject rayCastOrigin;
     private bool currentObjLookingAtPlayer;
@@ -62,7 +62,7 @@ namespace StarterAssets
             Debug.Log (hit.collider.name);
             Debug.Log (hit.collider.tag);
             distanceToRaycastObject = Vector3.Distance (rayCastOrigin.gameObject.transform.position, hit.transform.position);
-            Debug.Log ("la distancia es" + distanceToRaycastObject.ToString ());
+            //Debug.Log ("la distancia es " + distanceToRaycastObject.ToString ());
 
                 if (hit.collider != null)
                 {
@@ -90,14 +90,66 @@ namespace StarterAssets
                     StartCoroutine("chopIngredient");
                     currentObj.transform.position=new Vector3(hit.transform.position.x,hit.transform.position.y + 2f, hit.transform.position.z); 
                     }  
+
+                       //interactua amb olla
+                if(hit.collider.tag=="Boiler" && currentObj != null && currentObj.GetComponent<Ingredient>().canBeBoiled==true 
+                && currentObj.GetComponent<Ingredient>().isBoiled==false && distanceToRaycastObject <=2.5f)
+                    {
+                    StartCoroutine("boilIngredient");
+                    currentObj.transform.position=new Vector3(hit.transform.position.x,hit.transform.position.y + 2f, hit.transform.position.z); 
+                    } 
                 }
             }    
+        }
+
+          IEnumerator boilIngredient()
+        {
+            //cridar metode per tallar, radial
+            if( Input.GetKey(KeyCode.E) && currentObj.GetComponent<Ingredient>().isBoiled==false){
+                //desactivar moviment
+                player.GetComponent<ThirdPersonController>().enabled=false;
+                shouldUpdate=false;
+                indicatorTimer -= Time.deltaTime;
+                radialIndicatorUI.enabled=true;
+                radialIndicatorUI.fillAmount=indicatorTimer;
+
+                if(indicatorTimer <=0){
+                    currentObj.GetComponent<Ingredient>().isBoiled=true;
+                    panelPlates.gameObject.SetActive(true);
+
+                player.GetComponent<ThirdPersonController>().enabled=true;
+
+                indicatorTimer=maxIndicatorTimer;
+                radialIndicatorUI.fillAmount=maxIndicatorTimer;
+                radialIndicatorUI.enabled=false;
+                myEvent.Invoke();
+                }
+            }
+            else
+            {
+                if(shouldUpdate){
+                    indicatorTimer += Time.deltaTime;
+                    radialIndicatorUI.fillAmount=indicatorTimer;
+
+                    if(indicatorTimer >= maxIndicatorTimer){
+                    indicatorTimer=maxIndicatorTimer;
+                    radialIndicatorUI.fillAmount=maxIndicatorTimer;
+                    radialIndicatorUI.enabled=false;
+                    shouldUpdate=false;
+                    }
+                }
+            }
+            if(Input.GetKeyUp(KeyCode.E))
+            {
+            shouldUpdate=true;
+            }
+            yield return null;
         }
 
         IEnumerator chopIngredient()
         {
             //cridar metode per tallar, radial
-            if( Input.GetKey(KeyCode.E) &&  currentObj.GetComponent<Ingredient>().isChopped==false){
+            if( Input.GetKey(KeyCode.E) && currentObj.GetComponent<Ingredient>().isChopped==false){
                 //desactivar moviment
                 player.GetComponent<ThirdPersonController>().enabled=false;
                 shouldUpdate=false;

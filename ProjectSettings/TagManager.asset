@@ -8,6 +8,7 @@ TagManager:
   - Pickable
   - Plate
   - CuttingBoard
+  - Boiler
   layers:
   - Default
   - TransparentFX
