@@ -26,11 +26,6 @@ public class OrderUpdaterUI : MonoBehaviour
                 nouPref.transform.SetParent (orderPanel.gameObject.transform); 
                  var rectTransform = nouPref.GetComponent<RectTransform>();
                  rectTransform.localScale = new Vector3 (0.38f, 1.2f, rectTransform.localScale.z);
-
-               
-
-                 
-
            // var scale = rectTransform.localScale;
           //  scale.x = 3f;
            // recTransform.localScale = scale;

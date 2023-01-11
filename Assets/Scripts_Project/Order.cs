@@ -13,14 +13,5 @@ public class Order : MonoBehaviour
 
     //Order appleSoup= new Order (Ingredient[Apple,Apple]);
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+  
 }

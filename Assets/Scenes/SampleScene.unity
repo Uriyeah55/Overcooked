@@ -763,7 +763,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 58.231}
+  m_AnchoredPosition: {x: 0, y: 58.230957}
   m_SizeDelta: {x: 0, y: -116.463}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &359402255
@@ -979,7 +979,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &428250530
 Transform:
   m_ObjectHideFlags: 0
@@ -1729,6 +1729,7 @@ GameObject:
   - component: {fileID: 808165015}
   - component: {fileID: 808165014}
   - component: {fileID: 808165013}
+  - component: {fileID: 808165016}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -1799,7 +1800,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 808165014}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 335849184}
+        m_TargetAssemblyTypeName: 
+        m_MethodName: 
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: 
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &808165014
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1838,6 +1851,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 808165011}
   m_CullTransparentMesh: 1
+--- !u!114 &808165016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 808165011}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c17e817c66b2284796ef1cd30d6f8a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectiveOrders: []
+  OrdersContainer: {fileID: 0}
 --- !u!1 &839743027
 GameObject:
   m_ObjectHideFlags: 0
@@ -3492,6 +3519,7 @@ GameObject:
   - component: {fileID: 1648025276}
   - component: {fileID: 1648025278}
   - component: {fileID: 1648025279}
+  - component: {fileID: 1648025280}
   m_Layer: 0
   m_Name: MANAGER
   m_TagString: Untagged
@@ -3564,6 +3592,20 @@ MonoBehaviour:
   panelPlate5: {fileID: 0}
   panelPlates: {fileID: 1753869207}
   ingredientImgPrefab: {fileID: 4605004153307619178, guid: 106c3f55147b5374a97302fe92794438, type: 3}
+--- !u!114 &1648025280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1648025275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c17e817c66b2284796ef1cd30d6f8a8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  objectiveOrders: []
+  OrdersContainer: {fileID: 335849184}
 --- !u!1 &1724148037
 GameObject:
   m_ObjectHideFlags: 0
