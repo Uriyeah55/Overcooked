@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using IComparable;
+
 
 public class checkPlateCompletion : MonoBehaviour
 {
     public Order[] objectiveOrders;
     public GameObject OrdersContainer;
+    public List<Ingredient> currentPlateIngredients;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,21 +19,29 @@ public class checkPlateCompletion : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        currentPlateIngredients=this.GetComponent<Plate>().plateIngredients;
     }
-    public void processPlate(List<Ingredient> ingredientsList)
+    public void processPlate()
     {
+        currentPlateIngredients.Sort();
+        Debug.Log("process plate. " + OrdersContainer.name + " has " + OrdersContainer.transform.childCount + " children");
+
         bool coincidence=false;
-        if(ingredientsList.Count==2)
+        if(currentPlateIngredients.Count==2)
         {
+        Debug.Log("current plate ingredients count 2");
+
             for(int i = 0; i < OrdersContainer.transform.childCount; i++)
             {
-                /// All your stuff with transform.GetChild(i) here...
+                OrdersContainer.transform.GetChild(i).GetComponent<OrderSlot>().OrderToUpdate.orderIngredients.Sort();
+                 Debug.Log("bucle amb child: " + OrdersContainer.transform.GetChild(i).name);
+
                 if(!coincidence)
                 {
-                    bool currentIngredientsMatch=DoListsMatch(transform.GetChild(i).GetComponent<OrderSlot>().OrderToUpdate.orderIngredients,ingredientsList);
+                    bool currentIngredientsMatch=DoListsMatch(OrdersContainer.transform.GetChild(i).GetComponent<OrderSlot>().OrderToUpdate.orderIngredients,currentPlateIngredients);
                     if(currentIngredientsMatch){
                         coincidence=true;
+                        Debug.Log("ha coincidit amb el plat " + i);
                     }
                 }
             }
@@ -42,13 +54,13 @@ public class checkPlateCompletion : MonoBehaviour
   
         List<Order> ordersObjective;
         //plate has enough ingredients to check
-        if(ingredientsList.Count==2){
+        if(currentPlateIngredients.Count==2){
             //check for every order
             
             foreach(GameObject slot in ordersPanel.GetComponentInChildren){
                 if(!coincidence)
                 {
-                    if(ingredientsList==slot.GetComponent<OrderSlot>().OrderToUpdate.orderIngredients){
+                    if(currentPlateIngredients==slot.GetComponent<OrderSlot>().OrderToUpdate.orderIngredients){
 
                     }
                 }
