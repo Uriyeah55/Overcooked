@@ -9,7 +9,7 @@ public class Debugger : MonoBehaviour
     void Start()
     {
           for(int i = 0; i < OrdersContainer.transform.childCount; i++){
-            Debug.Log("aa" + transform.GetChild(i).GetComponent<OrderSlot>().OrderToUpdate.orderIngredients);
+           // Debug.Log("aa" + transform.GetChild(i).GetComponent<OrderSlot>().OrderToUpdate.orderIngredients);
           }
     }
 

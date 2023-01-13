@@ -22,4 +22,12 @@ public class Ingredient : MonoBehaviour
         this.canBeChopped=canBeChopped;
         this.canBeBoiled=canBeBoiled;
     }
+
+    public bool compareIngredients(Ingredient ingReceived){
+        bool match=false;
+        if(ingReceived.name.Equals(name)){
+            match=true;
+        }
+        return match;
+    }
 }

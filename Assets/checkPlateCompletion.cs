@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using IComparable;
+
 
 
 public class checkPlateCompletion : MonoBehaviour
@@ -24,6 +24,10 @@ public class checkPlateCompletion : MonoBehaviour
     public void processPlate()
     {
         currentPlateIngredients.Sort();
+
+   
+
+
         Debug.Log("process plate. " + OrdersContainer.name + " has " + OrdersContainer.transform.childCount + " children");
 
         bool coincidence=false;
@@ -33,13 +37,22 @@ public class checkPlateCompletion : MonoBehaviour
 
             for(int i = 0; i < OrdersContainer.transform.childCount; i++)
             {
-                OrdersContainer.transform.GetChild(i).GetComponent<OrderSlot>().OrderToUpdate.orderIngredients.Sort();
-                 Debug.Log("bucle amb child: " + OrdersContainer.transform.GetChild(i).name);
+                //OrdersContainer.transform.GetChild(i).GetComponent<OrderSlot>().OrderToUpdate.orderIngredients.Sort();
+                //Debug.Log("bucle amb child: " + OrdersContainer.transform.GetChild(i).name);
 
                 if(!coincidence)
                 {
+                    //test
+    
+
+
+
+                    //
                     bool currentIngredientsMatch=DoListsMatch(OrdersContainer.transform.GetChild(i).GetComponent<OrderSlot>().OrderToUpdate.orderIngredients,currentPlateIngredients);
-                    if(currentIngredientsMatch){
+                    
+                    //bool currentIngredientsMatch=DoListsMatch(OrdersContainer.transform.GetChild(i).GetComponent<OrderSlot>().OrderToUpdate.orderIngredients,currentPlateIngredients);
+                    if(currentIngredientsMatch)
+                    {
                         coincidence=true;
                         Debug.Log("ha coincidit amb el plat " + i);
                     }
@@ -69,6 +82,16 @@ public class checkPlateCompletion : MonoBehaviour
         }
         */
     }
+
+     private bool CheckMatch(List<Ingredient> l1, List<Ingredient> l2) {
+ if (l1.Count != l2.Count)
+     return false;
+ for (int i = 0; i < l1.Count; i++) {
+     if (l1[i] != l2[i])
+         return false;
+ }
+ return true;
+ }
 
     private bool DoListsMatch(List<Ingredient> list1, List<Ingredient> list2)
 {
