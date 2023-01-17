@@ -20,15 +20,15 @@ public class checkPlateCompletion : MonoBehaviour
     void Update()
     {
         currentPlateIngredients=this.GetComponent<Plate>().plateIngredients;
+        Debug.Log("plate 1 ingredients number: " + currentPlateIngredients.Count);
     }
     public void processPlate()
     {
-        currentPlateIngredients.Sort();
+//        currentPlateIngredients.Sort();
 
-   
-
-
-        Debug.Log("process plate. " + OrdersContainer.name + " has " + OrdersContainer.transform.childCount + " children");
+       // Debug.Log("process plate. " + currentPlateIngredients.name + " has " + currentPlateIngredients.transform.childCount + " children");
+        bool ing1Coincidence=false;
+        bool ing2Coincidence=false;
 
         bool coincidence=false;
         if(currentPlateIngredients.Count==2)
@@ -40,61 +40,64 @@ public class checkPlateCompletion : MonoBehaviour
                 //OrdersContainer.transform.GetChild(i).GetComponent<OrderSlot>().OrderToUpdate.orderIngredients.Sort();
                 //Debug.Log("bucle amb child: " + OrdersContainer.transform.GetChild(i).name);
 
+                //ordenar llistes
+                OrdersContainer.transform.GetChild(i).GetComponent<OrderSlot>().OrderToUpdate.orderIngredients.Sort(CompareIngredientsByName);
+                currentPlateIngredients.Sort(CompareIngredientsByName);
+
+                 int ingMatchPRE=CompareIngredientsByName(OrdersContainer.transform.GetChild(i).GetComponent<OrderSlot>().OrderToUpdate.orderIngredients[0],currentPlateIngredients[0]);
+                    Debug.Log("match entre " + OrdersContainer.transform.GetChild(i).GetComponent<OrderSlot>().OrderToUpdate.orderIngredients[0].name +
+                    " i " + currentPlateIngredients[0].name + ":" + ingMatchPRE);
                 if(!coincidence)
                 {
-                    //test
-    
+                    int ingMatch=CompareIngredientsByName(OrdersContainer.transform.GetChild(i).GetComponent<OrderSlot>().OrderToUpdate.orderIngredients[0],currentPlateIngredients[0]);
+                    Debug.Log("match entre " + OrdersContainer.transform.GetChild(i).GetComponent<OrderSlot>().OrderToUpdate.orderIngredients[0].name +
+                    " i " + currentPlateIngredients[0].name + ":" + ingMatch);
+                    
+                    /*
+                    if(CompareIngredientsByName(OrdersContainer.transform.GetChild(i).GetComponent<OrderSlot>().OrderToUpdate.orderIngredients[0],currentPlateIngredients[0])){
+                        Debug.Log("ingredient 1 coincideix");
+                        if(OrdersContainer.transform.GetChild(i).GetComponent<OrderSlot>().OrderToUpdate.orderIngredients[1].CompareIngredientsByName(),currentPlateIngredients[1]){
+                        Debug.Log("ingredient 2 coincideix");
+                    }
+                    }*/
+                   for(int a=0;a<2;a++){
 
-
-
-                    //
-                    bool currentIngredientsMatch=DoListsMatch(OrdersContainer.transform.GetChild(i).GetComponent<OrderSlot>().OrderToUpdate.orderIngredients,currentPlateIngredients);
+                   }
+                    //bool currentIngredientsMatch=DoListsMatch(OrdersContainer.transform.GetChild(i).GetComponent<OrderSlot>().OrderToUpdate.orderIngredients,currentPlateIngredients);
                     
                     //bool currentIngredientsMatch=DoListsMatch(OrdersContainer.transform.GetChild(i).GetComponent<OrderSlot>().OrderToUpdate.orderIngredients,currentPlateIngredients);
+                    /*
                     if(currentIngredientsMatch)
                     {
                         coincidence=true;
                         Debug.Log("ha coincidit amb el plat " + i);
-                    }
+                    }*/
                 }
             }
         }
         else{
             //no hi ha prous ingredients al plat
             }
-
-/*
-  
-        List<Order> ordersObjective;
-        //plate has enough ingredients to check
-        if(currentPlateIngredients.Count==2){
-            //check for every order
-            
-            foreach(GameObject slot in ordersPanel.GetComponentInChildren){
-                if(!coincidence)
-                {
-                    if(currentPlateIngredients==slot.GetComponent<OrderSlot>().OrderToUpdate.orderIngredients){
-
-                    }
-                }
-            }
-         
         }
-        */
+
+ //test
+    	private static int CompareIngredientsByName(Ingredient first, Ingredient second){
+		return first.name.CompareTo(second.name);
+	}
+     private bool CheckMatch(List<Ingredient> l1, List<Ingredient> l2) 
+     {
+
+        if (l1.Count != l2.Count)
+            return false;
+        for (int i = 0; i < l1.Count; i++) {
+            if (l1[i] != l2[i])
+                return false;
+        }
+        return true;
     }
 
-     private bool CheckMatch(List<Ingredient> l1, List<Ingredient> l2) {
- if (l1.Count != l2.Count)
-     return false;
- for (int i = 0; i < l1.Count; i++) {
-     if (l1[i] != l2[i])
-         return false;
- }
- return true;
- }
-
     private bool DoListsMatch(List<Ingredient> list1, List<Ingredient> list2)
-{
+    {
     var areListsEqual = true;
 
     if (list1.Count != list2.Count)
@@ -112,5 +115,5 @@ public class checkPlateCompletion : MonoBehaviour
     }
 
     return areListsEqual;
-}
+    }
 }

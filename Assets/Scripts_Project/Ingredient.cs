@@ -13,9 +13,6 @@ public class Ingredient : MonoBehaviour
     public bool isBoiled=false;
     public Image IngredientImg;
 
-    //public List<Ingredient> allIngredients = new List<Ingredient>();  // Create list
-    
-   // Ingredient ing = stockOBj.AddComponent<Ingredient>();
     public Ingredient(string name, bool canBeChopped, bool canBeBoiled)
     {
         this.name=name;
@@ -30,4 +27,14 @@ public class Ingredient : MonoBehaviour
         }
         return match;
     }
+    //test
+    	private static int CompareIngredientsByName(Ingredient first, Ingredient second){
+		return first.name.CompareTo(second.name);
+	}
+    class IngredientsComparison : IComparer<Ingredient> {
+	public int Compare(Ingredient first, Ingredient second)
+    {
+		return first.name.CompareTo(second.name);
+	}
+}
 }
