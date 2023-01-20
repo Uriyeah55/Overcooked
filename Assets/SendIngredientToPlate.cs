@@ -41,6 +41,8 @@ public class SendIngredientToPlate : MonoBehaviour
     }
     public void sendIngredientTo1(){
 
+        if(plate1.GetComponent<Plate>().plateIngredients.Count<2)
+        {
         panelPlates.gameObject.SetActive(false);
         Ingredient ing = player.GetComponent<ItemInteraction>().currentObj.GetComponent<Ingredient>();
         plate1.GetComponent<Plate>().plateIngredients.Add(ing);
@@ -60,7 +62,12 @@ public class SendIngredientToPlate : MonoBehaviour
 
 
         rectTransform.Rotate( new Vector3(xRotation, yRotation, zRotation ) );
-Destroy( player.GetComponent<ItemInteraction>().currentObj);
+        Destroy( player.GetComponent<ItemInteraction>().currentObj);
+        }
+        else{
+            Debug.Log("el plat 1 té dos ingredients ja");
+        }
+       
     
 
 
