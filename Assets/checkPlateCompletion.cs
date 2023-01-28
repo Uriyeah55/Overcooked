@@ -30,6 +30,10 @@ public class checkPlateCompletion : MonoBehaviour
         int ing1Coincidence;
         int ing2Coincidence;
 
+        int ing1CoincidenceMethod2;
+        int ing2CoincidenceMethod2;
+
+
         bool coincidence=false;
         if(currentPlateIngredients.Count==2)
         {
@@ -44,9 +48,14 @@ public class checkPlateCompletion : MonoBehaviour
                 OrdersContainer.transform.GetChild(i).GetComponent<OrderSlot>().OrderToUpdate.orderIngredients.Sort(CompareIngredientsByName);
                 currentPlateIngredients.Sort(CompareIngredientsByName);
 
-                 
+                ing1Coincidence=-1;
+                ing2Coincidence=-1;
+
+                ing1CoincidenceMethod2=-1;
+                 ing1CoincidenceMethod2=-1;
                 if(!coincidence)
                 {
+                    //check ingredient 1 - 1
                      ing1Coincidence=CompareIngredientsByName(OrdersContainer.transform.GetChild(i).GetComponent<OrderSlot>().OrderToUpdate.orderIngredients[0],currentPlateIngredients[0]);
                     Debug.Log("match entre " + OrdersContainer.transform.GetChild(i).GetComponent<OrderSlot>().OrderToUpdate.orderIngredients[0].name +
                     " i " + currentPlateIngredients[0].name + ":" + ing1Coincidence);
@@ -54,8 +63,16 @@ public class checkPlateCompletion : MonoBehaviour
                     ing2Coincidence=CompareIngredientsByName(OrdersContainer.transform.GetChild(i).GetComponent<OrderSlot>().OrderToUpdate.orderIngredients[1],currentPlateIngredients[1]);
                     Debug.Log("match entre " + OrdersContainer.transform.GetChild(i).GetComponent<OrderSlot>().OrderToUpdate.orderIngredients[0].name +
                     " i " + currentPlateIngredients[0].name + ":" + ing2Coincidence);
+                    //check ingredient 1 - 2
+                    ing1CoincidenceMethod2=CompareIngredientsByName(OrdersContainer.transform.GetChild(i).GetComponent<OrderSlot>().OrderToUpdate.orderIngredients[0],currentPlateIngredients[1]);
+                    Debug.Log("match entre " + OrdersContainer.transform.GetChild(i).GetComponent<OrderSlot>().OrderToUpdate.orderIngredients[1].name +
+                    " i " + currentPlateIngredients[0].name + ":" + ing1CoincidenceMethod2);
 
-                    if(ing1Coincidence==0 && ing2Coincidence==0){
+                    ing2CoincidenceMethod2=CompareIngredientsByName(OrdersContainer.transform.GetChild(i).GetComponent<OrderSlot>().OrderToUpdate.orderIngredients[1],currentPlateIngredients[0]);
+                    Debug.Log("match entre " + OrdersContainer.transform.GetChild(i).GetComponent<OrderSlot>().OrderToUpdate.orderIngredients[1].name +
+                    " i " + currentPlateIngredients[0].name + ":" + ing2CoincidenceMethod2);
+
+                    if((ing1Coincidence==0 && ing2Coincidence==0) || (ing1CoincidenceMethod2==0 && ing2CoincidenceMethod2==0)){
                         coincidence=true;
                         Debug.Log("han coincidit el ingredient 0 i 1 a la order " + i + " que es diu " + OrdersContainer.transform.GetChild(i).GetComponent<OrderSlot>().OrderToUpdate.name);
                     }
