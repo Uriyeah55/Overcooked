@@ -39,10 +39,13 @@ public class SendIngredientToPlate : MonoBehaviour
     {
         Debug.Log("plate 1 ingr num: " + plate1.plateIngredients.Count);
     }
-    public void sendIngredientTo1(){
-
+    public void sendIngredientTo1()
+    {
+       
         if(plate1.GetComponent<Plate>().plateIngredients.Count<2)
         {
+                player.GetComponent<ThirdPersonController>().enabled=true;
+
         panelPlates.gameObject.SetActive(false);
         Ingredient ing = player.GetComponent<ItemInteraction>().currentObj.GetComponent<Ingredient>();
         plate1.GetComponent<Plate>().plateIngredients.Add(ing);
@@ -72,6 +75,8 @@ public class SendIngredientToPlate : MonoBehaviour
 
         if(plate2.GetComponent<Plate>().plateIngredients.Count<2)
         {
+                player.GetComponent<ThirdPersonController>().enabled=true;
+
         panelPlates.gameObject.SetActive(false);
         Ingredient ing = player.GetComponent<ItemInteraction>().currentObj.GetComponent<Ingredient>();
         plate2.GetComponent<Plate>().plateIngredients.Add(ing);
@@ -102,6 +107,8 @@ public class SendIngredientToPlate : MonoBehaviour
 
         if(plate3.GetComponent<Plate>().plateIngredients.Count<2)
         {
+                player.GetComponent<ThirdPersonController>().enabled=true;
+
         panelPlates.gameObject.SetActive(false);
         Ingredient ing = player.GetComponent<ItemInteraction>().currentObj.GetComponent<Ingredient>();
         plate3.GetComponent<Plate>().plateIngredients.Add(ing);
@@ -131,6 +138,8 @@ public class SendIngredientToPlate : MonoBehaviour
 
         if(plate4.GetComponent<Plate>().plateIngredients.Count<2)
         {
+                player.GetComponent<ThirdPersonController>().enabled=true;
+
         panelPlates.gameObject.SetActive(false);
         Ingredient ing = player.GetComponent<ItemInteraction>().currentObj.GetComponent<Ingredient>();
         plate4.GetComponent<Plate>().plateIngredients.Add(ing);
@@ -160,6 +169,8 @@ public class SendIngredientToPlate : MonoBehaviour
 
         if(plate5.GetComponent<Plate>().plateIngredients.Count<2)
         {
+                player.GetComponent<ThirdPersonController>().enabled=true;
+
         panelPlates.gameObject.SetActive(false);
         Ingredient ing = player.GetComponent<ItemInteraction>().currentObj.GetComponent<Ingredient>();
         plate5.GetComponent<Plate>().plateIngredients.Add(ing);

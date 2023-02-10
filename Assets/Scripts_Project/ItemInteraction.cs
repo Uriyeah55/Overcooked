@@ -190,7 +190,8 @@ namespace StarterAssets
         IEnumerator chopIngredient()
         {
             //cridar metode per tallar, radial
-            if( Input.GetKey(KeyCode.E) && currentObj.GetComponent<Ingredient>().isChopped==false){
+            if( Input.GetKey(KeyCode.E) && currentObj.GetComponent<Ingredient>().isChopped==false)
+            {
                 //desactivar moviment
                 player.GetComponent<ThirdPersonController>().enabled=false;
                 shouldUpdate=false;
@@ -198,11 +199,12 @@ namespace StarterAssets
                 radialIndicatorUI.enabled=true;
                 radialIndicatorUI.fillAmount=indicatorTimer;
 
-                if(indicatorTimer <=0){
+                if(indicatorTimer <=0)
+                {
                     currentObj.GetComponent<Ingredient>().isChopped=true;
                     panelPlates.gameObject.SetActive(true);
 
-                player.GetComponent<ThirdPersonController>().enabled=true;
+                //player.GetComponent<ThirdPersonController>().enabled=true;
 
                 indicatorTimer=maxIndicatorTimer;
                 radialIndicatorUI.fillAmount=maxIndicatorTimer;
@@ -212,23 +214,25 @@ namespace StarterAssets
             }
             else
             {
-                if(shouldUpdate){
+                if(shouldUpdate)
+                {
                     indicatorTimer += Time.deltaTime;
                     radialIndicatorUI.fillAmount=indicatorTimer;
 
-                    if(indicatorTimer >= maxIndicatorTimer){
-                    indicatorTimer=maxIndicatorTimer;
-                    radialIndicatorUI.fillAmount=maxIndicatorTimer;
-                    radialIndicatorUI.enabled=false;
-                    shouldUpdate=false;
+                    if(indicatorTimer >= maxIndicatorTimer)
+                    {
+                        indicatorTimer=maxIndicatorTimer;
+                        radialIndicatorUI.fillAmount=maxIndicatorTimer;
+                        radialIndicatorUI.enabled=false;
+                        shouldUpdate=false;
                     }
                 }
             }
             if(Input.GetKeyUp(KeyCode.E))
             {
-            shouldUpdate=true;
+                shouldUpdate=true;
             }
-            yield return null;
+                yield return null;
         }
     }
 }
