@@ -23,6 +23,7 @@ namespace StarterAssets
         GameObject player;
         public GameObject holdingObjectPosition;
         public GameObject currentObj;
+        public Canvas[] canvasList;
 
     public GameObject rayCastOrigin;
     private bool currentObjLookingAtPlayer;
@@ -104,18 +105,42 @@ namespace StarterAssets
                          if (Input.GetKeyDown(KeyCode.E))
                         {
                              switch(hit.collider.name)
-                        {
-
-                            case "Plate 1":
-                            panelPlateIngredients.SetActive(true);
-                            break;
-                        }
+                            {
+                                
+                                case "Plate 1":
+                                ActiveCanvas(0);
+                                break;
+                                case "Plate 2":
+                                ActiveCanvas(1);
+                                break;
+                                 case "Plate 3":
+                                ActiveCanvas(2);
+                                break;
+                                 case "Plate 4":
+                                ActiveCanvas(3);
+                                break;
+                                 case "Plate 5":
+                                ActiveCanvas(4);
+                                break;
+                            }
                         }
                        //TODO desactivar quan tregui el raycast buscar raycast out
                         
                     }
+                    else{
+                        for(int i=0;i<canvasList.Length;i++){
+                            DisableCanvas(i);
+                        }
+                    }
                 }
             }    
+        }
+        void ActiveCanvas(int index){
+            panelPlateIngredients.SetActive(true);
+            canvasList[index].GetComponent<Canvas>().enabled=true;
+        }
+        void DisableCanvas(int index){
+            canvasList[index].GetComponent<Canvas>().enabled=false;
         }
 
           IEnumerator boilIngredient()

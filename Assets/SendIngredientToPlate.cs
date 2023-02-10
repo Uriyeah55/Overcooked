@@ -67,40 +67,123 @@ public class SendIngredientToPlate : MonoBehaviour
         else{
             Debug.Log("el plat 1 té dos ingredients ja");
         }
-       
-    
-
-
-       // gameObjectToMove.transform.position = new Vector3(x, y, z);
-
-       //Debug.Log("plate 1 ingr num: " + plate1.plateIngredients.Count);
-
-
-        //Debug.Log("s'ha afegit ingredient " + ing.name);
     }
-     public void sendIngredientTo2(){
-        panelPlates.gameObject.SetActive(false);
+      public void sendIngredientTo2(){
 
-Ingredient ing = player.GetComponent<ItemInteraction>().currentObj.GetComponent<Ingredient>();
+        if(plate2.GetComponent<Plate>().plateIngredients.Count<2)
+        {
+        panelPlates.gameObject.SetActive(false);
+        Ingredient ing = player.GetComponent<ItemInteraction>().currentObj.GetComponent<Ingredient>();
         plate2.GetComponent<Plate>().plateIngredients.Add(ing);
-    }
-     public void sendIngredientTo3(){
-        panelPlates.gameObject.SetActive(false);
+        
+        GameObject newIngredientImage= Instantiate(ingredientImgPrefab, new Vector3(panelPlate2.transform.position.x, panelPlate2.transform.position.y, panelPlate2.transform.position.z), Quaternion.identity);
+        newIngredientImage.transform.SetParent (panelPlate2.gameObject.transform);
+        newIngredientImage.GetComponent<Image>().sprite=ing.IngredientImg.sprite;
+        var rectTransform = newIngredientImage.GetComponent<RectTransform>();
 
-Ingredient ing = player.GetComponent<ItemInteraction>().currentObj.GetComponent<Ingredient>();
+        rectTransform.localScale = new Vector3 (3.6f, 3.11f, 0);
+        newIngredientImage.transform.localScale += scaleChange;
+       //float RotateX=panelPlate1.transform.rotation;
+
+       float zRotation = panelPlate2.GetComponent<RectTransform>().eulerAngles.z;
+       float xRotation = panelPlate2.GetComponent<RectTransform>().eulerAngles.x;
+       float yRotation = panelPlate2.GetComponent<RectTransform>().eulerAngles.y;
+
+
+        rectTransform.Rotate( new Vector3(xRotation, yRotation, zRotation ) );
+        Destroy(player.GetComponent<ItemInteraction>().currentObj);
+        }
+        else{
+            Debug.Log("el plat 2 té dos ingredients ja");
+        }
+    }
+     
+      public void sendIngredientTo3(){
+
+        if(plate3.GetComponent<Plate>().plateIngredients.Count<2)
+        {
+        panelPlates.gameObject.SetActive(false);
+        Ingredient ing = player.GetComponent<ItemInteraction>().currentObj.GetComponent<Ingredient>();
         plate3.GetComponent<Plate>().plateIngredients.Add(ing);
-    }
-     public void sendIngredientTo4(){
-        panelPlates.gameObject.SetActive(false);
+        
+        GameObject newIngredientImage= Instantiate(ingredientImgPrefab, new Vector3(panelPlate3.transform.position.x, panelPlate3.transform.position.y, panelPlate3.transform.position.z), Quaternion.identity);
+        newIngredientImage.transform.SetParent (panelPlate3.gameObject.transform);
+        newIngredientImage.GetComponent<Image>().sprite=ing.IngredientImg.sprite;
+        var rectTransform = newIngredientImage.GetComponent<RectTransform>();
 
-Ingredient ing = player.GetComponent<ItemInteraction>().currentObj.GetComponent<Ingredient>();
+        rectTransform.localScale = new Vector3 (3.6f, 3.11f, 0);
+        newIngredientImage.transform.localScale += scaleChange;
+       //float RotateX=panelPlate1.transform.rotation;
+
+       float zRotation = panelPlate3.GetComponent<RectTransform>().eulerAngles.z;
+       float xRotation = panelPlate3.GetComponent<RectTransform>().eulerAngles.x;
+       float yRotation = panelPlate3.GetComponent<RectTransform>().eulerAngles.y;
+
+
+        rectTransform.Rotate(new Vector3(xRotation, yRotation, zRotation ));
+        Destroy(player.GetComponent<ItemInteraction>().currentObj);
+        }
+        else{
+            Debug.Log("el plat 3 té dos ingredients ja");
+        }
+    }
+      public void sendIngredientTo4(){
+
+        if(plate4.GetComponent<Plate>().plateIngredients.Count<2)
+        {
+        panelPlates.gameObject.SetActive(false);
+        Ingredient ing = player.GetComponent<ItemInteraction>().currentObj.GetComponent<Ingredient>();
         plate4.GetComponent<Plate>().plateIngredients.Add(ing);
-    }
-     public void sendIngredientTo5(){
-        panelPlates.gameObject.SetActive(false);
+        
+        GameObject newIngredientImage= Instantiate(ingredientImgPrefab, new Vector3(panelPlate4.transform.position.x, panelPlate4.transform.position.y, panelPlate4.transform.position.z), Quaternion.identity);
+        newIngredientImage.transform.SetParent (panelPlate4.gameObject.transform);
+        newIngredientImage.GetComponent<Image>().sprite=ing.IngredientImg.sprite;
+        var rectTransform = newIngredientImage.GetComponent<RectTransform>();
 
-Ingredient ing = player.GetComponent<ItemInteraction>().currentObj.GetComponent<Ingredient>();
+        rectTransform.localScale = new Vector3 (3.6f, 3.11f, 0);
+        newIngredientImage.transform.localScale += scaleChange;
+       //float RotateX=panelPlate1.transform.rotation;
+
+       float zRotation = panelPlate4.GetComponent<RectTransform>().eulerAngles.z;
+       float xRotation = panelPlate4.GetComponent<RectTransform>().eulerAngles.x;
+       float yRotation = panelPlate4.GetComponent<RectTransform>().eulerAngles.y;
+
+
+        rectTransform.Rotate(new Vector3(xRotation, yRotation, zRotation ));
+        Destroy(player.GetComponent<ItemInteraction>().currentObj);
+        }
+        else{
+            Debug.Log("el plat 4 té dos ingredients ja");
+        }
+    }
+    public void sendIngredientTo5(){
+
+        if(plate5.GetComponent<Plate>().plateIngredients.Count<2)
+        {
+        panelPlates.gameObject.SetActive(false);
+        Ingredient ing = player.GetComponent<ItemInteraction>().currentObj.GetComponent<Ingredient>();
         plate5.GetComponent<Plate>().plateIngredients.Add(ing);
+        
+        GameObject newIngredientImage= Instantiate(ingredientImgPrefab, new Vector3(panelPlate5.transform.position.x, panelPlate5.transform.position.y, panelPlate5.transform.position.z), Quaternion.identity);
+        newIngredientImage.transform.SetParent (panelPlate5.gameObject.transform);
+        newIngredientImage.GetComponent<Image>().sprite=ing.IngredientImg.sprite;
+        var rectTransform = newIngredientImage.GetComponent<RectTransform>();
+
+        rectTransform.localScale = new Vector3 (3.6f, 3.11f, 0);
+        newIngredientImage.transform.localScale += scaleChange;
+       //float RotateX=panelPlate1.transform.rotation;
+
+       float zRotation = panelPlate5.GetComponent<RectTransform>().eulerAngles.z;
+       float xRotation = panelPlate5.GetComponent<RectTransform>().eulerAngles.x;
+       float yRotation = panelPlate5.GetComponent<RectTransform>().eulerAngles.y;
+
+
+        rectTransform.Rotate(new Vector3(xRotation, yRotation, zRotation ));
+        Destroy(player.GetComponent<ItemInteraction>().currentObj);
+        }
+        else{
+            Debug.Log("el plat 5 té dos ingredients ja");
+        }
     }
 }
 }
