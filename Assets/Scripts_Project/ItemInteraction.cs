@@ -106,7 +106,6 @@ namespace StarterAssets
                         {
                              switch(hit.collider.name)
                             {
-                                
                                 case "Plate 1":
                                 ActiveCanvas(0);
                                 break;

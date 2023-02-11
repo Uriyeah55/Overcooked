@@ -111,6 +111,6 @@ MonoBehaviour:
   name: Apple
   canBeChopped: 1
   isChopped: 0
-  canBeBoiled: 1
+  canBeBoiled: 0
   isBoiled: 0
   IngredientImg: {fileID: 1159978158456418453, guid: 2f330ab9d23b7d648916dc2e2b1e77c7, type: 3}
