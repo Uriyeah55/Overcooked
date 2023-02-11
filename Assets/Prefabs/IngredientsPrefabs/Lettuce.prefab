@@ -45,4 +45,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Lettuce
   canBeChopped: 1
-  canBeBoiled: 0
+  isChopped: 0
+  canBeBoiled: 1
+  isBoiled: 0
+  IngredientImg: {fileID: 0}

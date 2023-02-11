@@ -46,5 +46,5 @@ MonoBehaviour:
   name: Apple Salad
   orderImg: {fileID: 1241570444223415795, guid: 5c16f58b19d10de4189434826a754ad3, type: 3}
   orderIngredients:
-  - {fileID: 5250358649418568186, guid: d02ecb95f2f58ca449e03e6c9c61186a, type: 3}
+  - {fileID: 6538451548120129275, guid: 8123cd5d93481b443b9d19a62c1c3fdc, type: 3}
   - {fileID: 7033590021318022298, guid: db0ac8863d7a0dd4f87830d6c26a4b4e, type: 3}

@@ -10,10 +10,12 @@ public class checkPlateCompletion : MonoBehaviour
     public Order[] objectiveOrders;
     public GameObject OrdersContainer;
     public List<Ingredient> currentPlateIngredients;
+    GameObject manager;
     // Start is called before the first frame update
     void Start()
     {
-        
+        manager = GameObject.Find("MANAGER");
+        manager.GetComponent<UpdateScore>().AddScore(50);
     }
 
     // Update is called once per frame
@@ -24,8 +26,6 @@ public class checkPlateCompletion : MonoBehaviour
     }
     public void processPlate()
     {
-//        currentPlateIngredients.Sort();
-
        // Debug.Log("process plate. " + currentPlateIngredients.name + " has " + currentPlateIngredients.transform.childCount + " children");
         int ing1Coincidence;
         int ing2Coincidence;
@@ -41,8 +41,6 @@ public class checkPlateCompletion : MonoBehaviour
 
             for(int i = 0; i < OrdersContainer.transform.childCount; i++)
             {
-                //OrdersContainer.transform.GetChild(i).GetComponent<OrderSlot>().OrderToUpdate.orderIngredients.Sort();
-                //Debug.Log("bucle amb child: " + OrdersContainer.transform.GetChild(i).name);
 
                 //ordenar llistes
                 OrdersContainer.transform.GetChild(i).GetComponent<OrderSlot>().OrderToUpdate.orderIngredients.Sort(CompareIngredientsByName);
@@ -75,28 +73,11 @@ public class checkPlateCompletion : MonoBehaviour
                     if((ing1Coincidence==0 && ing2Coincidence==0) || (ing1CoincidenceMethod2==0 && ing2CoincidenceMethod2==0)){
                         coincidence=true;
                         Debug.Log("han coincidit el ingredient 0 i 1 a la order " + i + " que es diu " + OrdersContainer.transform.GetChild(i).GetComponent<OrderSlot>().OrderToUpdate.name);
+                        manager.GetComponent<UpdateScore>().AddScore(50);
                     }
                     else{
                         Debug.Log("no ha coincidit amb el plat " + OrdersContainer.transform.GetChild(i).GetComponent<OrderSlot>().OrderToUpdate.name);
                     }
-                    
-                    /*
-                    if(CompareIngredientsByName(OrdersContainer.transform.GetChild(i).GetComponent<OrderSlot>().OrderToUpdate.orderIngredients[0],currentPlateIngredients[0])){
-                        Debug.Log("ingredient 1 coincideix");
-                        if(OrdersContainer.transform.GetChild(i).GetComponent<OrderSlot>().OrderToUpdate.orderIngredients[1].CompareIngredientsByName(),currentPlateIngredients[1]){
-                        Debug.Log("ingredient 2 coincideix");
-                    }
-                    }*/
-                 
-                    //bool currentIngredientsMatch=DoListsMatch(OrdersContainer.transform.GetChild(i).GetComponent<OrderSlot>().OrderToUpdate.orderIngredients,currentPlateIngredients);
-                    
-                    //bool currentIngredientsMatch=DoListsMatch(OrdersContainer.transform.GetChild(i).GetComponent<OrderSlot>().OrderToUpdate.orderIngredients,currentPlateIngredients);
-                    /*
-                    if(currentIngredientsMatch)
-                    {
-                        coincidence=true;
-                        Debug.Log("ha coincidit amb el plat " + i);
-                    }*/
                 }
             }
         }
